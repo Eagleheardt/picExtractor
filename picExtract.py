@@ -22,7 +22,13 @@ def extractPicsFromDir(dirPath=""):
 						shutil.move(dirPath + str(zippedFile),"Picture - " + str(picNum)) # moves the picture out
 						picNum += 1
 				os.rmdir(dirPath + "/word/media") # removes directory
-				os.rmdir(dirPath + "/word") #removes more directory
+				os.rmdir(dirPath + "/word") # removes more directory
+				##################################################################
+				# Untested windows code:
+				# os.rmdir(dirPath + "\\\\word\\\\media") # removes directory
+				# os.rmdir(dirPath + "\\\\word") #removes more directory
+				# os.remove(zipName) # removes zip file
+				##################################################################
 				os.remove(zipName) # removes zip file
 				# no evidence
 	else:
