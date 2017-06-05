@@ -10,15 +10,16 @@ def zipDoc(aFile,dirPath):
 	zipName = dirPath + shortFN + ".zip" # name and path of the file only .zip
 	shutil.copy2(dirPath + aFile, zipName) # copies all data from original into .zip format
 	useZIP = zipfile.ZipFile(zipName) # the usable zip file
-	return useZIP
+	return useZIP # returns the zipped file 
 
 def hasPicExtension(aFile): # if a file ends in a typical picture file extension, returns true
-	if(aFile.endswith(".jpeg") or aFile.endswith(".jpg") or aFile.endswith(".png") or aFile.endswith(".JPEG") or aFile.endswith(".JPG") or aFile.endswith(".PNG") or aFile.endswith(".bmp") or aFile.endswith(".BMP")):
-		return True
-	else:
+	picEndings = [".jpeg",".jpg",".png",".bmp",".JPEG"".JPG",".BMP",".PNG"] # list of photo extensions
+	if aFile.endswith(tuple(picEndings)): # turn the list into a tuple, because .endswith accepts that
+		return True		
+	else: # if it doesn't end in a picture extension
 		return False
 
-def delDOCXEvidence(somePath):
+def delDOCXEvidence(somePath): # removes the .docx file structures generated
 	##################################################################
 	# Working Linux code:
 	os.rmdir(somePath + "/word/media") # removes directory
@@ -31,7 +32,7 @@ def delDOCXEvidence(somePath):
 	# os.rmdir(somePath + "\\\\word") #removes more directory
 	##################################################################
 
-def delXLSXEvidence(somePath):
+def delXLSXEvidence(somePath): # removes the .xlsx file structures generated
 	##################################################################
 	# Working Linux code:
 	os.rmdir(somePath + "/xl/media") # removes directory
@@ -40,8 +41,8 @@ def delXLSXEvidence(somePath):
 				
 	##################################################################
 	# Untested windows code:
-	# os.rmdir(somePath + "\\\\word\\\\media") # removes directory
-	# os.rmdir(somePath + "\\\\word") #removes more directory
+	# os.rmdir(somePath + "\\\\xl\\\\media") # removes directory
+	# os.rmdir(somePath + "\\\\xl") #removes more directory
 	##################################################################
 
 def extractPicsFromDir(dirPath=""):
