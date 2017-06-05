@@ -1,7 +1,7 @@
 # picExtractor
-Extracts pictures from .doc and .docx files
+Extracts pictures from .docx and .xlsx files
 
-Uses python to extract picture files from word documents. Pictures will be extracted into the directory in which the script is run. They will be named simply "Picture - ###" for differentiation.
+Uses python to extract picture files from word documents. Pictures will be extracted into the directory where the documents are located. Pictures will be named as "<name of the file> - <picture number in document>"
 
 Issues:
 
